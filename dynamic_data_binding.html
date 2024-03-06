@@ -1,0 +1,54 @@
+<html>
+    <body>
+        <p id="state"></p>
+        <p id="cities"></p>
+        <p id="msg"></p>
+        <script>
+            var s = ["---SELECT CITIES---","up","mp","delhi"]
+            var uc = ["lko","amethi","ray","sultanpur","pratapgarh","mirjapur"]
+            var mc=["1","2", "3","4","5","6"]
+            var dc=["ko"," thi","r "," anp ","pga","apur"]
+            var m=document.querySelector("#msg")
+            var n =document.querySelector("#cities")
+            var a="<select onchange='demo(this)' >"   
+            s.forEach(function (x,i){
+                a+="<option>"+x+"</option>"
+            })
+            a+="</select>"
+           // document.write(a)
+            document.querySelector("#state").innerHTML=a
+            var demo=(obj)=>{
+                var c="<select>"
+                if (obj.value=="up"){
+                    uc.forEach(function (x){
+                        c+="<option>"+x+"</option>"
+                    })
+                    n.style.display="block"
+                    m.style.display="none"
+                }
+                else if (obj.value=="mp"){
+                    mc.forEach(function (x){
+                        c+="<option>"+x+"</option>"
+                    })
+                    n.style.display="block"
+                    m.style.display="none"
+                }
+                else if (obj.value=="delhi"){
+                    dc.forEach(function (x){
+                        c+="<option>"+x+"</option>"
+                    })
+                    n.style.display="block"
+                    m.style.display="none"
+                }
+                else{
+                    m.style.display="block"
+                    m.innerText="Please select first state!"
+                    document.querySelector("#cities").style.display="none"
+                    m.style.color="red"
+                }
+                c+="</select>"
+                n.innerHTML=c
+            }
+        </script>
+    </body>
+</html>
